@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteAccount(String userId) {
         // this method need the rest of the entities
-        // the logic is to schedule a profile for deletion
+        // the logic is just to schedule a profile for deletion
         // and then a scheduled job will pick up the profiles and delete everything.
 
     }

@@ -30,7 +30,8 @@ public class KeyUtils {
                 .replace("-----END PUBLIC KEY-----","").replaceAll("\\s+", "");
 
         final byte[] decoded = Base64.getDecoder().decode(key);
-        final X509EncodedKeySpec spec = new X509EncodedKeySpec(decoded);
+//        final X509EncodedKeySpec spec = new X509EncodedKeySpec(decoded);
+        final PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(decoded);
         return KeyFactory.getInstance("RSA").generatePublic(spec);
 
     }

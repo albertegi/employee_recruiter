@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserMapper {
+
     public void mergeUserInfo(final User savedUser, final ProfileUpdateRequest request) {
         if(StringUtils.isNotBlank(request.getFirstName())
                 && !savedUser.getFirstName().equals(request.getFirstName())){
