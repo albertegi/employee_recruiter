@@ -27,6 +27,14 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @CreatedDate
+    @Column(name = "CREATED_DATE", updatable = false, nullable = false)
+    private LocalDateTime createdDate;
+
+    @LastModifiedDate
+    @Column(name = "LAST_MODIFIED_DATE", insertable = false)
+    private LocalDateTime lastModifiedDate;
+
     @CreatedBy
     @Column(name = "CREATED_BY", nullable = false, updatable = false)
     private Integer createdBy;

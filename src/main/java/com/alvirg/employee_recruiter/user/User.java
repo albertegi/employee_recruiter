@@ -64,13 +64,7 @@ public class User implements UserDetails {
     @Column(name = "IS_PHONE_VERIFIED")
     private boolean phoneVerified;
 
-    @CreatedDate
-    @Column(name = "CREATED_DATE", updatable = false, nullable = false)
-    private LocalDateTime createdDate;
 
-    @LastModifiedDate
-    @Column(name = "LAST_MODIFIED_DATE", insertable = false)
-    private LocalDateTime lastModifiedDate;
 
     /**
      * CascadeType.PERSIST means When a user is created and assign a role to that user,
