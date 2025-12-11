@@ -1,5 +1,6 @@
 package com.alvirg.employee_recruiter.user;
 
+import com.alvirg.employee_recruiter.auth.request.RegistrationRequest;
 import com.alvirg.employee_recruiter.user.request.ProfileUpdateRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -22,4 +23,26 @@ public class UserMapper {
                 && !request.getDateOfBirth().equals(savedUser.getDateOfBirth()))
             savedUser.setDateOfBirth(request.getDateOfBirth());
         }
+
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
+    private String password;
+    private String confirmPassword;
+
+    public User toUser(RegistrationRequest request) {
+        return User.builder()
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .email(request.getEmail())
+                .phoneNumber(request.getPhoneNumber())
+                .password(request.getPassword())
+                .enabled(true)
+                .locked(false)
+                .credentialExpired(false)
+                .emailVerified(false)
+                .phoneVerified(false)
+                .build();
+    }
 }
