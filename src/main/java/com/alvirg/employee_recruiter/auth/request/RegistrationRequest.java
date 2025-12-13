@@ -16,7 +16,7 @@ import lombok.*;
 public class RegistrationRequest {
     @NotBlank(message = "VALIDATION.REGISTRATION.FIRSTNAME.NOT_BLANK")
     @Size(
-            min = 5,
+            min = 3,
             max = 50,
             message = "VALIDATION.REGISTRATION.FIRSTNAME.SIZE"
     )
@@ -29,7 +29,7 @@ public class RegistrationRequest {
 
     @NotBlank(message = "VALIDATION.REGISTRATION.LASTNAME.NOT_BLANK")
     @Size(
-            min = 5,
+            min = 3,
             max = 50,
             message = "VALIDATION.REGISTRATION.LASTNAME.SIZE"
     )

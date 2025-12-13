@@ -30,15 +30,14 @@ public class KeyUtils {
                 .replace("-----END PUBLIC KEY-----","").replaceAll("\\s+", "");
 
         final byte[] decoded = Base64.getDecoder().decode(key);
-//        final X509EncodedKeySpec spec = new X509EncodedKeySpec(decoded);
-        final PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(decoded);
+        final X509EncodedKeySpec spec = new X509EncodedKeySpec(decoded);
         return KeyFactory.getInstance("RSA").generatePublic(spec);
 
     }
 
     private static String readKeyFromResource(String pemPath) throws Exception {
 
-        try(final InputStream inputStream = KeyUtils.class.getResourceAsStream(pemPath)){
+        try(final InputStream inputStream = KeyUtils.class.getClassLoader().getResourceAsStream(pemPath)){
 
             if(inputStream == null){
                 throw new IllegalArgumentException("Could not find key file " + pemPath);

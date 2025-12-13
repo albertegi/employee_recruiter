@@ -101,15 +101,22 @@ public class ApplicationExceptionHandler {
                                     .code(errorCode)
                                     .message(errorCode)
                                     .build());
+
+
                 });
                 final ErrorResponse errorResponse = ErrorResponse.builder()
-                .validationErrors(errors)
-                .build();
+                        .message(ErrorCode.VALIDATION_ERROR.getDefaultMessage())
+                        .code(ErrorCode.VALIDATION_ERROR.getCode())
+                        .validationErrors(errors)
+                        .build();
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(errorResponse);
 
     }
+
+
+
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(final Exception exp){

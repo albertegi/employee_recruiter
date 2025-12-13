@@ -15,31 +15,31 @@ import java.time.LocalDate;
 @Builder
 public class ProfileUpdateRequest {
 
-    @NotBlank(message = "VALIDATION.PROFILE_UPDATE.FIRSTNAME.NOT_BLANK")
+    @NotBlank(message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.FIRSTNAME.NOT_BLANK")
     @Size(
             min = 5,
             max = 50,
-            message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.SIZE"
+            message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.FIRSTNAME.SIZE"
     )
     @Pattern(
             regexp = "^[\\p{L} '-]+$",
-            message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.PATTERN"
+            message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.FIRSTNAME.PATTERN"
     )
     @Schema(example = "Albert")
     private String firstName;
 
-    @NotBlank(message = "VALIDATION.PROFILE_UPDATE.FIRSTNAME.NOT_BLANK")
+    @NotBlank(message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.LASTNAME.NOT_BLANK")
     @Size(
             min = 5,
             max = 50,
-            message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.SIZE"
+            message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.LASTNAME.SIZE"
     )
     @Pattern(
             regexp = "^[\\p{L} '-]+$",
-            message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.PATTERN"
+            message = "VALIDATION.REGISTRATION.PROFILE_UPDATE.LASTNAME.PATTERN"
     )
     @Schema(example = "Albert")
-    private String LastName;
+    private String lastName;
 
 
     private LocalDate dateOfBirth;

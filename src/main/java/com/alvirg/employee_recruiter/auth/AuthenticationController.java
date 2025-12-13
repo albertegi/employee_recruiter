@@ -4,6 +4,12 @@ import com.alvirg.employee_recruiter.auth.request.AuthenticationRequest;
 import com.alvirg.employee_recruiter.auth.request.RefreshRequest;
 import com.alvirg.employee_recruiter.auth.request.RegistrationRequest;
 import com.alvirg.employee_recruiter.auth.response.AuthenticationResponse;
+import com.alvirg.employee_recruiter.handler.ErrorResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +38,21 @@ public class AuthenticationController {
         return ResponseEntity.ok(this.authenticationService.login(request));
     }
 
+    @Operation(summary = "Register a new user", description = "Register a new user with email, password, and other required information")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "User successfully registered"
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Validation error - Invalid input data",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponse.class)
+                    )
+            )
+    })
     @PostMapping("/register")
     public ResponseEntity<Void> register(
             @Valid

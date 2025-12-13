@@ -129,7 +129,7 @@ public class User implements UserDetails {
     @Override
     public boolean isCredentialsNonExpired() {
 
-        return !this.expired;
+        return !this.credentialExpired;
     }
 
 

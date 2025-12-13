@@ -1,7 +1,7 @@
 services:
   postgres:
     container_name: employee_recruiter
-    image: 17.5
+    image: postgres:17.5
     environment:
       POSTGRES_USER: albert
       POSTGRES_PASSWORD: albert

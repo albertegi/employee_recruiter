@@ -5,6 +5,7 @@ import com.alvirg.employee_recruiter.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -16,13 +17,13 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Table(name = "ROLES")
 public class Role extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+//    @Id
+//    @GeneratedValue
+//    private Integer id;
     @Column(unique = true)
     private String name;
 
@@ -31,12 +32,12 @@ public class Role extends BaseEntity {
     private List<User> users;
 
 
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private LocalDate createDate;
-
-    @LastModifiedDate
-    @Column(insertable = false)
-    private LocalDate lastModifiedDate;
+//    @CreatedDate
+//    @Column(nullable = false, updatable = false)
+//    private LocalDate createDate;
+//
+//    @LastModifiedDate
+//    @Column(insertable = false)
+//    private LocalDate lastModifiedDate;
     
 }

@@ -37,11 +37,11 @@ public class BaseEntity {
 
     @CreatedBy
     @Column(name = "CREATED_BY", nullable = false, updatable = false)
-    private Integer createdBy;
+    private String createdBy;
 
     @LastModifiedBy
     @Column(name = "LAST_MODIFIED_BY", insertable = false)
-    private Integer lastModifiedBy;
+    private String lastModifiedBy;
 
 
 }

@@ -18,8 +18,10 @@ public enum ErrorCode {
     PASSWORD_MISMATCH("PASSWORD_MISMATCH", "Passwords do not match", HttpStatus.BAD_REQUEST),
     ERR_USER_DISABLED("ERR_USER_DISABLED", "User is disabled", HttpStatus.UNAUTHORIZED),
     BAD_CREDENTIALS("BAD_CREDENTIALS", "Username and / or password incorrect", HttpStatus.UNAUTHORIZED),
-    USERNAME_NOT_FOUND("USERNAME_NOT_FOUND_EXCEPTION", "Username not found", HttpStatus.NOT_FOUND), INTERNAL_EXCEPTION("INTERNAL_EXCEPTION", "Internal server error", HttpStatus.INTERNAL_SERVER_ERROR),
-    ENTITY_NOT_FOUND("ENTITY_NOT_FOUND", "Entity not found", HttpStatus.NOT_FOUND);
+    USERNAME_NOT_FOUND("USERNAME_NOT_FOUND_EXCEPTION", "Username not found", HttpStatus.NOT_FOUND),
+    INTERNAL_EXCEPTION("INTERNAL_EXCEPTION", "Internal server error", HttpStatus.INTERNAL_SERVER_ERROR),
+    ENTITY_NOT_FOUND("ENTITY_NOT_FOUND", "Entity not found", HttpStatus.NOT_FOUND),
+    VALIDATION_ERROR("VALIDATION_ERROR", "Validation failed", HttpStatus.BAD_REQUEST);
 
 
 

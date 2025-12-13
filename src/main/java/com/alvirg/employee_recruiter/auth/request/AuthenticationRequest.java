@@ -16,7 +16,7 @@ public class AuthenticationRequest {
 
     @NotBlank(message = "VALIDATION.AUTHENTICATION.EMAIL.NOT_BLANK")
     @Email(message = "VALIDATION.AUTHENTICATION.EMAIL.FORMAT")
-    @Schema(example = "albert@email.com")
+    @Schema(example = "albert@gmail.com")
     private String email;
     @NotBlank(message = "VALIDATION.AUTHENTICATION.PASSWORD.NOT_BLANK")
     @Schema(example = "<PASSWORD>")

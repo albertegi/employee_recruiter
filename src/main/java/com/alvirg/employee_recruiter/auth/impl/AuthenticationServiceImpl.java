@@ -73,7 +73,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         final Role userRole = this.roleRepository.findByName("ROLE_USER")
                 .orElseThrow(()-> new EntityNotFoundException("Role user does not exist"));
 
-        // between user and role is a many-to-many relationship, so create a list of roles
+        // because user and role is a many-to-many relationship, so create a list of roles
         final List<Role> roles = new ArrayList<>();
         roles.add(userRole);
 
@@ -116,7 +116,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     private void checkPasswords(String password, String confirmPassword) {
-        if (password == null || !password.equals(confirmPassword)){
+        if (!password.equals(confirmPassword)){
             throw new BusinessException(ErrorCode.PASSWORD_MISMATCH);
         }
 
