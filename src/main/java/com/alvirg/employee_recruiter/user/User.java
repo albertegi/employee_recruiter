@@ -1,6 +1,7 @@
 package com.alvirg.employee_recruiter.user;
 
 import com.alvirg.employee_recruiter.role.Role;
+import com.alvirg.employee_recruiter.todo.Todo;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -89,6 +90,9 @@ public class User implements UserDetails {
             }
     )
     private List<Role> roles;
+
+    @OneToMany(mappedBy = "user")
+    private List<Todo> todos;
 
 
     @Override
