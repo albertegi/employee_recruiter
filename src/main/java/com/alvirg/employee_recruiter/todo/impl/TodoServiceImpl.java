@@ -70,8 +70,8 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public List<TodoResponse> findAllTodosByCategory(String userId, String catId) {
-        return  this.todoRepository.findAllByUserIdAndCategoryId(userId, catId)
+    public List<TodoResponse> findAllTodosByCategory(String catId, String userId) {
+        return  this.todoRepository.findAllByUserIdAndCategoryId(catId, userId)
                 .stream()
                 .map(this.todoMapper::toTodoResponse)
                 .toList();

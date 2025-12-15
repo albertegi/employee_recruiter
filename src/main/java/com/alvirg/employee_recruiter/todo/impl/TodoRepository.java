@@ -19,9 +19,15 @@ public interface TodoRepository extends JpaRepository<Todo, String> {
             """)
     boolean findByTitleAndUser(String title, String userId);
 
+    @Query("""
+            SELECT t
+            FROM Todo t
+            WHERE t.user.id = :userId
+            AND t.startDate = current_date
+            """)
     List<Todo> findAllByUserId(String userId);
 
-    List<Todo> findAllByUserIdAndCategoryId(String userId, String categoryId);
+    List<Todo> findAllByUserIdAndCategoryId(String categoryId, String userId);
 
     @Query("""
             SELECT t
