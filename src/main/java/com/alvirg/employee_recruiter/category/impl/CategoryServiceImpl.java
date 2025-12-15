@@ -39,11 +39,11 @@ public class CategoryServiceImpl implements CategoryService {
         // first check that the category you want to update exists;
         final Category categoryToUpdate = this.categoryRepository.findById(catId)
                 .orElseThrow(()-> new EntityNotFoundException("No Category found with this id: " + catId));
-        // world -> universe
         checkCategoryNameUniquenessForUser(request.getName(), userId);
 
         // merge the CategoryUpdateRequest request from the request and categoryToUpdate from the database
         this.categoryMapper.mergeCategory(categoryToUpdate, request);
+
         this.categoryRepository.save(categoryToUpdate);
     }
 

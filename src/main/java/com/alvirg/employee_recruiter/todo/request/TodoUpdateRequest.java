@@ -23,4 +23,5 @@ public class TodoUpdateRequest {
     private LocalDate endDate;
     private LocalTime startTime;
     private LocalTime endTime;
+    private String categoryId; // since to do belongs to a category
 }
